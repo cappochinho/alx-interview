@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """
 Contains canUnlockAll() method that determines
 if all boxes can be unlocked
