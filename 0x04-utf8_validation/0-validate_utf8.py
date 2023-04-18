@@ -10,6 +10,9 @@ def validUTF8(data):
     """
     valid = True
 
+    if not data or data == []:
+        return False
+
     for n in data:
         if n in range(0, 128):
             continue
