@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 ALX-Interview Prep - UTF-8 Validation
 """
@@ -9,7 +8,7 @@ def validUTF8(data):
     """
     Validating UTF-8 encoding in data
     """
-    valid: bool = True
+    valid = True
 
     for n in data:
         if n in range(0, 128):
