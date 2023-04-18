@@ -5,7 +5,7 @@ ALX-Interview Prep - UTF-8 Validation
 """
 
 
-def validUTF8(data) -> bool:
+def validUTF8(data):
     """
     Validating UTF-8 encoding in data
     """
