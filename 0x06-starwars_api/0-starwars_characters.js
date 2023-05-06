@@ -6,20 +6,11 @@ const request = require('request');
 request(endpoint, { json: true } ,function (error, response, body) {
   if (error) throw error;
   const res = body.characters;
-  // res.forEach((character) => {
-  //   request(character, { json: true }, function (error, response, body) {
-  //     if (error) throw error;
-  //     const res2 = body.name;
-  //     console.log(res2);
-  //   });
-  // });
-  const len = res.length;
-  let count = 0;
-  while (count < len) {
-    request(res[count], { json: true }, function (error, response, body) {
+  res.forEach((character) => {
+    request(character, { json: true }, function (error, response, body) {
       if (error) throw error;
-      console.log(body.name);
-    })
-    count += 1;
-  };
+      const res2 = body.name;
+      console.log(res2);
+    });
+  });
 });
