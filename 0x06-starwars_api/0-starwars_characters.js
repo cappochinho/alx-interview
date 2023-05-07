@@ -6,11 +6,20 @@ const request = require('request');
 request(endpoint, { json: true }, function (error, response, body) {
   if (error) throw error;
   const res = body.characters;
+  const names = [];
   for (const character of res) {
-    request(character, { json: true }, function (error, response, body) {
-      if (error) throw error;
-      const res2 = body.name;
-      console.log(res2);
-    });
+    names.push(new Promise((resolve, reject) => {
+      request(character, { json: true }, function (error, response, body) {
+        if (error) reject(error);
+        resolve(body.name);
+      });
+    }));
   }
+  Promise.all(names).then(name => {
+    for (const person of name) {
+      console.log(person);
+    }
+  }).catch(error => {
+    console.error(error);
+  });
 });
